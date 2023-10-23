@@ -1,0 +1,15 @@
+<div class="side" th:fragment="side">
+    <a href="https://dfcdh12.top/">
+        <div class="side_div" id="guestbook">
+            <i class="fa fa-h-square" aria-hidden="true"></i>
+            首页
+        </div>
+    </a>
+    <a th:href="@{'#'+${navType.navCode}}" th:each="navType:${navTypeList}">
+        <div class="side_div" id="guestbook" th:text="${navType.navName}">
+        </div>
+    </a>
+    <a href="https://dfcdh12.top/%E5%92%8C%E5%B9%B3%E4%B8%96%E7%95%8C/?https://9ji.bibeidh10.cc/#" rel="nofollow">
+        <div class="side_div" id="guestbook"><i class="fa fa-chevron-up" style="font-size:18px;"></i></div>
+    </a>
+</div>
