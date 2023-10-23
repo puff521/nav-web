@@ -1,0 +1,10 @@
+<div class="side" th:fragment="side">
+    <a href="#" target="_blank">
+        <div class="side_div" id="guestbook"><i class="fa fa-maxcdn" aria-hidden="true"></i> 发布页</div>
+    </a>
+
+    <a th:href="@{'#'+${navType.navCode}}" th:each="navType:${navTypeList}">
+        <div class="side_div" id="guestbook" th:text="${navType.navName}">
+        </div>
+    </a>
+</div>

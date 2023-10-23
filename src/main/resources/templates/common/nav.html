@@ -1,0 +1,11 @@
+<div class="nav" th:fragment="nav" >
+  <a href="#" target="_blank" th:each="navType:${navTypeList}" style="color:#ff0;font-weight:700">
+    <li th:text="${navType.navName}"></li>
+  </a>
+
+  <a href="#" target="_self" style="color:#fff;font-weight:700"><li>直接看片</li></a>
+
+  <a href="#" target="_blank" style="color:#ff0;font-weight:700"><li>广告合作</li></a>
+  <br class="clear">
+</div>
+
