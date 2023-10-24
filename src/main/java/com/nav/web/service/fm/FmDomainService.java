@@ -1,9 +1,8 @@
-package com.nav.web.service;
+package com.nav.web.service.fm;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.nav.web.entity.NavDomain;
-import com.nav.web.entity.NavType;
 
-public interface NavDomainService extends IService<NavDomain> {
+public interface FmDomainService extends IService<NavDomain> {
      String  getDomainUrl();
 }

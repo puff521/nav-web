@@ -5,21 +5,38 @@ spring:
     pathmatch:
       matching-strategy: ANT_PATH_MATCHER
   datasource:
-    url: jdbc:mysql://206.119.167.174:3306/my_nav?useUnicode=true&useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
-
-    username: root
-    password: 211c44d4bad3f364
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    type: com.zaxxer.hikari.HikariDataSource
-    hikari:
-      auto-commit: true
-      minimum-idle: 4
-      idle-timeout: 60000
-      connection-timeout: 30000
-      max-lifetime: 1800000
-      pool-name: DatebookHikariCP
-      maximum-pool-size: 16
-      connection-test-query: select 1
+    dynamic:
+      primary: fm
+      strict: false
+      datasource:
+        fm:
+          url: jdbc:mysql://206.119.167.174:3306/fm_dh?useUnicode=true&useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+          username: fm_dh
+          password: FtWtBKz46CGZ6BLC
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          type: com.zaxxer.hikari.HikariDataSource
+          hikari:
+            minIdle: 5
+            maxPoolSize: 500
+            isAutoCommit: true
+            idleTimeout: 30000
+            maxLifetime: 120000
+            connectionTimeout: 30000
+            connectionTestQuery: SELECT 1 #连接测试
+        jtm:
+          url: jdbc:mysql://206.119.167.174:3306/jtm_dh?useUnicode=true&useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+          username: jtm_dh
+          password: CFbwGba7WZCDi4Zf
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          type: com.zaxxer.hikari.HikariDataSource
+          hikari:
+            minIdle: 5
+            maxPoolSize: 500
+            isAutoCommit: true
+            idleTimeout: 30000
+            maxLifetime: 120000
+            connectionTimeout: 30000
+            connectionTestQuery: SELECT 1 #连接测试
 
 
   thymeleaf:

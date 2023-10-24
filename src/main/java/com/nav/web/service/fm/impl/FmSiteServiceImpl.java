@@ -1,0 +1,47 @@
+package com.nav.web.service.fm.impl;
+
+import com.baomidou.dynamic.datasource.annotation.DS;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.nav.web.entity.NavSite;
+import com.nav.web.entity.NavType;
+import com.nav.web.mapper.NavSiteMapper;
+import com.nav.web.service.fm.FmSiteService;
+import com.nav.web.service.fm.FmTypeService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+@Service
+@Slf4j
+//@CacheConfig(cacheNames = {"site"})
+public class FmSiteServiceImpl extends ServiceImpl<NavSiteMapper, NavSite> implements FmSiteService {
+
+
+    @Autowired
+    private FmTypeService fmTypeService;
+
+    @Override
+    @DS("fm")
+    public   Map<String, List<NavSite>> getSiteList() {
+        List<NavType>  navTypes =  fmTypeService.list();
+        List<NavSite> navSiteList = this.list();
+        // 按照游戏分类分组
+        Map<Long, List<NavSite>> gameCategoryMap =
+                navSiteList.stream().collect(Collectors.groupingBy(NavSite::getNavTypeId));
+
+        Map<String, List<NavSite>> stringListMap = new HashMap<>();
+        gameCategoryMap.forEach((kev, value) -> {
+            navTypes.forEach(typeItem->{
+                if(kev.equals(typeItem.getNavTypeId())){
+                    stringListMap.put(typeItem.getNavCode(),value);
+                }
+            });
+        });
+        return stringListMap;
+    }
+}

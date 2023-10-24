@@ -1,0 +1,28 @@
+<div class="main"  th:fragment="datalist">
+  <div class="column">
+    <!-- 后台遍历start -->
+    <!-- =================================================================== -->
+    <div class="cate" id="daohang" th:each="navType,navState:${siteMap}"  th:id="${navType.key}">
+      <div class="cate_name ">
+        <p th:switch="${navType.key}">
+          <i th:case="dh"> 导航</i>
+          <i th:case="sp">视频</i>
+          <i th:case="xs">小说</i>
+          <i th:case="zh">综合</i>
+          <i th:case="gj">工具</i>
+        </p>
+      </div>
+      <ul class="mdui-m-b-0 flex-grid link-list">
+        <li class="mdui-col" th:each="site:${navType.value}" >
+          <a href="#" target="_blank" rel="nofollow">
+             <span class="link-title" th:text="${site.siteName}"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- 后台遍历end -->
+
+  </div>
+
+  <div style="display:none"></div>
+</div>

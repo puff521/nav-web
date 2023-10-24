@@ -1,72 +1,46 @@
-/*
-MiMiRuKou
-*/
-/* css reset*/
-blockquote,
-body,
-button,
-code,
-dd,
-div,
-dl,
-dt,
-fieldset,
-form,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-img,
-input,
-legend,
-li,
-ol,
-p,
-pre,
-td,
-textarea,
-th,
-ul {
+::-webkit-scrollbar {
+    width: 8px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    border-radius: 2em;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #335680;
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .4) 75%, transparent 75%, transparent);
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    border-radius: 2em;
+}
+
+blockquote, body, button, code, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, img, input, legend, li, ol, p, pre, td, textarea, th, ul {
     margin: 0;
     padding: 0
 }
 
 body {
-    background: url(../images/jntm.png) center top no-repeat;
-    background-color: #000000;
+    background: url(../images/fmx1.jpg) center top no-repeat;
+    background-color: #335680;
     overflow: hidden;
     color: #555;
     font-size: 13px;
     font-family: "Microsoft YaHei", Simsun, Tahoma
 }
 
-caption,
-td,
-th {
+caption, td, th {
     font-size: 14px
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
     font-size: 100%
 }
 
-address,
-caption,
-cite,
-code,
-dfn,
-em,
-strong,
-th,
-var {
+address, caption, cite, code, dfn, em, strong, th, var {
     font-style: normal;
     font-weight: 400
 }
@@ -84,16 +58,11 @@ img {
     border: none
 }
 
-li,
-ol,
-ul {
+li, ol, ul {
     list-style: none
 }
 
-button,
-input,
-select,
-textarea {
+button, input, select, textarea {
     font-size: 14px
 }
 
@@ -106,84 +75,75 @@ html {
 }
 
 #container {
-    width: 1200px;
+    width: 980px;
     margin: 0 auto;
-    margin-top: 160px
+    margin-top: 270px
 }
 
 .nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    width: 100%;
     margin-bottom: 10px;
-    border-radius: 2px;
-}
-
-.nav a {
-    display: block;
-    flex-basis: 8.3333%;
+    overflow: hidden
 }
 
 .nav li {
+    float: left;
     text-align: center;
+    display: block;
+    width: 120.5px;
     height: 40px;
     line-height: 40px;
-    background: #FF4CE5;
-    font-size: 16px;
+    border: 1px solid #5b8bc5;
+    background: #335680;
+    border-bottom: 2px solid #042f62;
+    border-radius: 5px;
+    font-size: 13px;
     transition: color .5s, background-color .5s;
     overflow: hidden
 }
 
 .nav li:hover {
     color: #fff;
-    background: #604CFF
+    background: #ff6ea1
 }
 
-.tips {
-    display: flex;
-    flex-wrap: wrap;
-    color: red;
-    line-height: 30px;
+.toptips {
+    width: 100%;
     background: #fffce7;
     margin-bottom: 2px;
-    border-radius: 2px;
-    font-size: 14px;
-    padding: 10px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden
 }
 
-.tips a {
+.toptips li {
+    float: left;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 13px;
     color: red;
-    margin-right: 10px;
+    overflow: hidden
 }
 
-.tips .highlight a {
-    color: #fff;
-    margin-right: 0;
-}
-
-.tips .tips-wrapper {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap
-}
-
-.tips .highlight {
+.toptips li b {
+    width: 16px;
     height: 16px;
-    line-height: 16px;
-    background: #da634b;
+    font-weight: 700;
+    background: #335680;
     color: #fff;
     padding: 2px 8px;
-    margin-right: 10px;
+    margin-left: 4px;
     font-size: 12px;
-    border-radius: 2px;
-
+    border-radius: 3px
 }
 
 .good {
     width: 100%;
     background: #fffce7;
-    margin-bottom: 5px;
-    border-radius: 2px;
+    margin-bottom: 10px;
+    border-radius: 0 0 5px 5px;
     overflow: hidden
 }
 
@@ -191,13 +151,12 @@ html {
     float: left;
     text-align: center;
     display: block;
-    width: 150px;
+    width: 122.5px;
     height: 40px;
     line-height: 40px;
     font-size: 13px;
     transition: color .5s, background-color .5s;
-    overflow: hidden;
-    font-weight: bold;
+    overflow: hidden
 }
 
 .good li:hover {
@@ -209,31 +168,31 @@ html {
     width: 100%;
     background: #fff;
     margin-bottom: 10px;
-    border-radius: 2px;
+    border-radius: 5px;
     overflow: hidden
 }
 
 .cate_name {
     height: 40px;
     width: 100%;
-    background: #ac2cfc;
+    background: #205259;
     overflow: hidden
 }
 
 .cate .pink {
-    background: #6eaffd
+    background: #fd6ea3
 }
 
 .cate .red {
-    background: #e52525
+    background: #c52622
 }
 
 .cate .green {
-    background: #23BE6B
+    background: #23be9b
 }
 
 .cate .yellow {
-    background: #fc9600
+    background: #fcc800
 }
 
 .cate .gray {
@@ -260,7 +219,7 @@ html {
     float: left;
     text-align: center;
     display: block;
-    width: 119px;
+    width: 121.5px;
     height: 40px;
     line-height: 40px;
     border-right: 1px solid #e6e6e6;
@@ -279,12 +238,12 @@ html {
     width: 16px;
     height: 16px;
     font-weight: 400;
-    background: #ac2cfc;
+    background: #2cbafc;
     color: #fff;
     padding: 1px 3px;
     margin-left: 4px;
     font-size: 12px;
-    border-radius: 2px
+    border-radius: 5px
 }
 
 .cate_ul {
@@ -299,6 +258,17 @@ html {
     height: 48px
 }
 
+.banner img {
+    width: 100%;
+    margin-bottom: 5px;
+    transition: opacity .5s;
+    border-radius: 5px
+}
+
+.banner img:hover {
+    opacity: .7
+}
+
 .footerapp img {
     width: 100%;
     margin-bottom: -8px;
@@ -310,7 +280,7 @@ html {
 }
 
 .footer {
-    border-radius: 5px 5px 0 0;
+    border-radius: 10px 10px 0 0;
     height: auto;
     margin-bottom: 0;
     opacity: .7
@@ -336,7 +306,7 @@ html {
     bottom: 5px;
     width: 70px;
     left: 50%;
-    margin-left: 606px
+    margin-left: 497px
 }
 
 .side_div {
@@ -346,7 +316,7 @@ html {
     text-align: center;
     color: #fff;
     margin-top: 2px;
-    border: 1px solid #FF4CE5;
+    box-shadow: 0 0 2px #000000;
     border-radius: 2px
 }
 
@@ -355,12 +325,12 @@ html {
     bottom: 5px;
     width: 70px;
     right: 50%;
-    margin-right: 606px
+    margin-right: 497px
 }
 
 .faq_scj {
     width: 70px;
-    height: 220px;
+    height: 70spx;
     line-height: 32px;
     text-align: center;
     color: #fff;
@@ -374,7 +344,7 @@ html {
     text-align: center;
     color: #fff;
     margin-top: 2px;
-    border: 1px solid #FF4CE5;
+    box-shadow: 0 0 2px #000000;
     border-radius: 2px
 }
 
@@ -397,7 +367,7 @@ html {
 }
 
 #scj {
-    background: url(../images/scj2.png)
+    background: url(../images/scj.png) no-repeat;
 }
 
 #top {
@@ -415,7 +385,7 @@ html {
 }
 
 #guestbook:hover {
-    background: #6eaffd
+    background: #fd6ea3
 }
 
 .btn {
@@ -426,18 +396,19 @@ html {
 .app {
     box-shadow: 0 0 15px rgba(100, 100, 100, .1);
     overflow: hidden;
-    border-radius: 2px;
+    border-radius: 5px;
     background-color: #fff
 }
 
 .navi {
     font-size: 0;
-    padding: 10px 5px 5px 5px;
+    padding: 5px;
+    text-align: center
 }
 
 .appico {
-    width: calc(100% / 12 - 10px);
-    margin: 0 5px;
+    width: calc(12% - 6px);
+    margin: 4px;
     height: auto;
     box-sizing: border-box;
     display: inline-block;
@@ -456,36 +427,20 @@ html {
 }
 
 .naicon {
-    border-radius: 5px;
+    border-radius: 15px;
     overflow: hidden;
     font-size: 0;
-    margin: 0 12px
+    margin: 12px
 }
 
 .appico img {
     width: 100%
 }
 
-.appico:hover .btn-raised {
+.appico:hover
+.btn-raised {
     -webkit-box-shadow: 0 0 12px 4px rgba(0, 0, 0, .24), 0 0 2px -2px rgba(0, 0, 0, .4), 0 1px 12px 0 rgba(0, 0, 0, .22);
     box-shadow: 0 0 12px 4px rgba(0, 0, 0, .24), 0 0 2px -2px rgba(0, 0, 0, .4), 0 1px 12px 0 rgba(0, 0, 0, .22)
-}
-
-
-/* 美女上門 */
-#jiaoyou li {
-    width: calc(50% - 2px)
-}
-
-/* 好用好玩 */
-#gongju .highlight {
-    color: blue;
-    font-weight: bold;
-}
-
-/* 片商情報 */
-#pianshang li {
-    width: calc(100% / 10 - 1px)
 }
 
 @media screen and (max-width: 1200px) {
@@ -509,14 +464,11 @@ html {
 
     #container {
         width: 98%;
-        margin-top: 20%
-    }
-
-    .nav a {
-        flex-basis: 16.6666%
+        margin-top: 40%
     }
 
     .nav li {
+        width: 20%;
         margin-right: -2px;
         height: 35px;
         line-height: 35px
@@ -536,7 +488,7 @@ html {
     }
 
     .cate li {
-        width: 25%;
+        width: 20%;
         margin-right: -1px;
         height: 35px;
         line-height: 35px
@@ -554,17 +506,6 @@ html {
     .appico {
         width: calc(25% - 10px)
     }
-
-    /* 美女上門 */
-    #jiaoyou li {
-        width: calc(100% - 2px)
-    }
-
-    /* 片商情報 */
-    #pianshang li {
-        width: 25%
-    }
-
 }
 
 @media screen and (max-width: 800px) {
@@ -604,12 +545,11 @@ html {
 
 @media screen and (max-width: 640px) {
     .nav li {
-        font-size: 12px;
+        width: 25%;
+        font-size: 11px;
         height: 30px;
-        border: 1px solid #da634b;
         line-height: 30px
     }
-
 
     .toptips li {
         width: 100%;
@@ -619,6 +559,7 @@ html {
     }
 
     .good li {
+        width: 25%;
         font-size: 11px;
         height: 30px;
         line-height: 30px
@@ -644,11 +585,20 @@ html {
         width: 16px;
         height: 16px;
         font-weight: 400;
-        background: #ac2cfc;
+        background: #2cbafc;
         color: #fff;
         padding: 2px 3px;
         margin-left: 4px;
         font-size: 11px;
         border-radius: 2px
     }
+}
+
+.icon-img-guan:before {
+    content: " ";
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    background: url(/guan.gif) no-repeat;
+    background-size: 100%;
 }

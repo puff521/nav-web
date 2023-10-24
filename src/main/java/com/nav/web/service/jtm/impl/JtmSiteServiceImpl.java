@@ -1,11 +1,12 @@
-package com.nav.web.service.impl;
+package com.nav.web.service.jtm.impl;
 
+import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.nav.web.entity.NavSite;
 import com.nav.web.entity.NavType;
 import com.nav.web.mapper.NavSiteMapper;
-import com.nav.web.service.NavSiteService;
-import com.nav.web.service.NavTypeService;
+import com.nav.web.service.jtm.JtmSiteService;
+import com.nav.web.service.jtm.JtmTypeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,15 +19,16 @@ import java.util.stream.Collectors;
 @Service
 @Slf4j
 //@CacheConfig(cacheNames = {"site"})
-public class NavSiteServiceImpl extends ServiceImpl<NavSiteMapper, NavSite> implements NavSiteService {
+public class JtmSiteServiceImpl extends ServiceImpl<NavSiteMapper, NavSite> implements JtmSiteService {
 
 
     @Autowired
-    private NavTypeService navTypeService;
+    private JtmTypeService jtmTypeService;
 
     @Override
+    @DS("jtm")
     public   Map<String, List<NavSite>> getSiteList() {
-        List<NavType>  navTypes =  navTypeService.list();
+        List<NavType>  navTypes =  jtmTypeService.list();
         List<NavSite> navSiteList = this.list();
         // 按照游戏分类分组
         Map<Long, List<NavSite>> gameCategoryMap =

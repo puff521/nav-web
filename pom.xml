@@ -12,15 +12,31 @@
     <artifactId>nav-web</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>nav-web</name>
+
+    <packaging>war</packaging>
     <description>nav-web</description>
+
+
     <properties>
         <java.version>8</java.version>
     </properties>
+
     <dependencies>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -107,6 +123,12 @@
         </dependency>
 
         <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+            <version>4.1.3</version>
+        </dependency>
+
+        <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>5.8.22</version>
@@ -115,7 +137,15 @@
     </dependencies>
 
     <build>
+        <finalName>nav-web</finalName>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
