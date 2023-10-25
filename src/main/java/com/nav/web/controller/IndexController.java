@@ -16,7 +16,7 @@ public class IndexController {
     @ApiOperation("获取站点数据")
     public String index(Model model) {
         String siteCode =  SecurityUtils.getHeader("siteCode");
-         siteCode =  "jtm_dh";
+        System.out.println("============"+siteCode);
         if("fm_dh".equals(siteCode)){
             return "forward:/fm/index";
         } else if ("jtm_dh".equals(siteCode)) {
