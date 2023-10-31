@@ -1,10 +1,10 @@
 <div class="nav" th:fragment="nav" >
 
-  <a href="/index" target="_blank" style="color:yellow;font-weight:bold">
+  <a href="/" target="_blank" style="color:yellow;font-weight:bold">
     <li >首页</li>
   </a>
 
-  <a href="#" target="_blank" th:each="navType:${navTypeList}" style="color:white;font-weight:700">
+  <a th:href="@{'#'+${navType.navCode}}" target="_self" th:each="navType:${navTypeList}" style="color:white;font-weight:700">
     <li th:text="${navType.navName}"></li>
   </a>
 
