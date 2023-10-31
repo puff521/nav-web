@@ -34,4 +34,7 @@ public class NavType extends BaseEntity {
     @ApiModelProperty(name = "状态 0 关闭 1 开启")
     private Long status;
 
+    @ApiModelProperty(name = "排序字段")
+    private Integer sort;
+
 }

@@ -59,4 +59,8 @@ public class NavSite extends BaseEntity {
     private Integer status;
 
 
+
+    @ApiModelProperty(name = "排序字段")
+    private Integer sort;
+
 }
