@@ -14,7 +14,7 @@
       </div>
       <ul class="mdui-m-b-0 flex-grid link-list">
         <li class="mdui-col" th:each="site:${navType.value}" >
-          <a href="#" target="_blank" rel="nofollow">
+          <a th:href="@{${site.siteUrl}}" target="_blank" rel="nofollow">
              <span class="link-title" th:text="${site.siteName}"></span>
           </a>
         </li>

@@ -2,13 +2,13 @@
     <a onclick="addFavorite(window.location,document.title)" href="javascript:void(0)">
         <div class="faq_scj" id="scj"></div>
     </a>
-    <a href="gysl" target="_blank">
+    <a th:href="@{gysl/{siteCode}(siteCode=fm_dh)}" target="_blank">
         <div class="faq_div" id="guestbook">关于我们</div>
     </a>
-    <a href="gysl" target="_blank">
+    <a th:href="@{gysl/{siteCode}(siteCode=fm_dh)}" target="_blank">
         <div class="faq_div" id="guestbook">广告刊登</div>
     </a>
-    <a href="gysl#add" target="_blank">
+    <a th:href="@{gysl/{siteCode}(siteCode=fm_dh)}" target="_blank">
         <div class="faq_div" id="guestbook">网站提交</div>
     </a>
     <a href="gysl#log" target="_blank">

@@ -21,7 +21,7 @@
         </p>
       </div>
 
-      <a href="" th:each="site:${navType.value}" target="_blank" rel="noopener">
+      <a th:href="@{${site.siteUrl}}"  th:each="site:${navType.value}" target="_blank" rel="noopener">
         <li  th:text="${site.siteName}" > </li>
       </a>
       <br class="clear">

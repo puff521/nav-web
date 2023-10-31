@@ -22,7 +22,7 @@ public class IndexController {
         } else if ("jtm_dh".equals(siteCode)) {
             return "forward:/jtm/index";
         }
-        return "index";
+        return "forward:/fm/index";
     }
 
 
