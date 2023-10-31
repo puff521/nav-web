@@ -3,6 +3,9 @@ package com.nav.web.controller;
 
 import com.nav.web.entity.NavSite;
 import com.nav.web.entity.NavType;
+import com.nav.web.service.fm.FmDomainService;
+import com.nav.web.service.fm.FmSiteService;
+import com.nav.web.service.fm.FmTypeService;
 import com.nav.web.service.jtm.JtmDomainService;
 import com.nav.web.service.jtm.JtmSiteService;
 import com.nav.web.service.jtm.JtmTypeService;
@@ -25,22 +28,22 @@ import java.util.Map;
 public class FmController {
 
     @Autowired
-    private JtmDomainService navDomainService;
+    private FmDomainService fmDomainService;
 
     @Autowired
-    private JtmTypeService jtmTypeService;
+    private FmTypeService fmTypeService;
 
     @Autowired
-    private JtmSiteService jtmSiteService;
+    private FmSiteService fmSiteService;
 
 
     @GetMapping("/index")
     @ApiOperation("获取站点数据")
     public String dfc(Model model) {
 
-        List<NavType> navTypeList =   jtmTypeService.getNvaTypeList();
-        Map<String, List<NavSite>> siteMap = jtmSiteService.getSiteList();
-        model.addAttribute("domainAddress", navDomainService.getDomainUrl());
+        List<NavType> navTypeList =   fmTypeService.getNvaTypeList();
+        Map<String, List<NavSite>> siteMap = fmSiteService.getSiteList();
+        model.addAttribute("domainAddress", fmDomainService.getDomainUrl());
         model.addAttribute("navTypeList", navTypeList);
         model.addAttribute("siteMap", siteMap);
         return "fm/index";

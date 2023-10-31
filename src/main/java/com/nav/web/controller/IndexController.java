@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class IndexController {
 
-    @RequestMapping("/index")
+    @GetMapping("/")
     @ApiOperation("获取站点数据")
     public String index(Model model) {
         String siteCode =  SecurityUtils.getHeader("siteCode");

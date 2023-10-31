@@ -24,7 +24,7 @@ spring:
             connectionTimeout: 30000
             connectionTestQuery: SELECT 1 #连接测试
         jtm:
-          url: jdbc:mysql://206.119.167.174:3306/my_nav?useUnicode=true&useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+          url: jdbc:mysql://206.119.167.174:3306/my_nav2?useUnicode=true&useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
           username: root
           password: 211c44d4bad3f364
           driver-class-name: com.mysql.cj.jdbc.Driver
