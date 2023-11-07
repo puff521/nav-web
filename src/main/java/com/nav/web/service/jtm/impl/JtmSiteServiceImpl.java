@@ -11,9 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -27,21 +25,29 @@ public class JtmSiteServiceImpl extends ServiceImpl<NavSiteMapper, NavSite> impl
 
     @Override
     @DS("jtm")
-    public   Map<String, List<NavSite>> getSiteList() {
-        List<NavType>  navTypes =  jtmTypeService.list();
+    public Map<String, List<NavSite>> getSiteList() {
+        List<NavType> navTypes = jtmTypeService.list();
+        List<NavType> navTypeSorts = navTypes.stream()
+                .sorted(Comparator.comparing(NavType::getSort))
+                .collect(Collectors.toList());
+
         List<NavSite> navSiteList = this.list();
+        navSiteList.sort(Comparator.comparing(NavSite::getSort));
+
         // 按照游戏分类分组
         Map<Long, List<NavSite>> gameCategoryMap =
                 navSiteList.stream().collect(Collectors.groupingBy(NavSite::getNavTypeId));
 
-        Map<String, List<NavSite>> stringListMap = new HashMap<>();
-        gameCategoryMap.forEach((kev, value) -> {
-            navTypes.forEach(typeItem->{
-                if(kev.equals(typeItem.getNavTypeId())){
-                    stringListMap.put(typeItem.getNavCode(),value);
+        Map<String, List<NavSite>> stringListMap = new LinkedHashMap<>();
+
+        navTypeSorts.forEach(typeItem -> {
+            gameCategoryMap.forEach((kev, value) -> {
+                if (kev.equals(typeItem.getNavTypeId())) {
+                    stringListMap.put(typeItem.getNavCode(), value);
                 }
             });
         });
+
         return stringListMap;
     }
 }
